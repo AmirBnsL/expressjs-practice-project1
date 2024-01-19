@@ -24,4 +24,5 @@ router.get("/tasks?Status=:taskStatus",tasksController.getTaskStatus );
 router.get("/tasks?sortby=:sortby",tasksController.sortTasks);
 
 
-router.get("/count",)
+/* router.get("/count",tasksController.count)
+ */

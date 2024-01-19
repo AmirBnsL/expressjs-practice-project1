@@ -1,7 +1,8 @@
 import { db } from "../db/db";
+import { Response,Request } from "express";
 
 
-const getTasks = async (req, res) => {
+const getTasks = async (req:Request, res:Response) => {
   try {
     const tasks = await db.any('SELECT * FROM "Tasks"');
     res.json(tasks);
@@ -11,7 +12,7 @@ const getTasks = async (req, res) => {
   }
 };
 
-const deleteTasks = async (req, res) => {
+const deleteTasks = async (req:Request, res:Response) => {
   const taskId = req.params.TaskId;
   if (!taskId) {
     res.status(400).send("Bad request");
@@ -26,7 +27,7 @@ const deleteTasks = async (req, res) => {
   }
 };
 
-const getTaskStatus = async (req, res) => {
+const getTaskStatus = async (req:Request, res:Response) => {
   const taskStatus = req.params.taskStatus;
   if (!taskStatus) {
     res.status(400).send("Bad request");
@@ -43,7 +44,7 @@ const getTaskStatus = async (req, res) => {
   }
 };
 
-const updateTasks = async (req, res) => {
+const updateTasks = async (req:Request, res:Response) => {
   const TaskId = req.params.TaskId;
   const task = req.body;
 
@@ -65,7 +66,7 @@ const updateTasks = async (req, res) => {
 };
 
 
-const sortTasks= async (req, res) => {
+const sortTasks= async (req:Request, res:Response) => {
     const sortby = req.params.sortby;
   
     if (!sortby) {
@@ -82,7 +83,7 @@ const sortTasks= async (req, res) => {
     }
   }
 
-const getTaskCount = async (req,res) => {
+const getTaskCount = async (req:Request,res:Response) => {
     
     try {
         const result= await db.one('SELECT COUNT(*) AS task_count FROM "Tasks"');
@@ -96,7 +97,7 @@ const getTaskCount = async (req,res) => {
 }
 
 
-const insertTask = async (req, res) => {
+const insertTask = async (req:Request, res:Response) => {
     const task = req.body;
   
     if (!task) {
@@ -120,7 +121,7 @@ const insertTask = async (req, res) => {
   }
 
 
-const selectTask=  async (req, res) => {
+const selectTask=  async (req:Request, res:Response) => {
     const TaskId = req.params.TaskId;
   
     if (!TaskId) {
