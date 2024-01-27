@@ -1,10 +1,12 @@
 import express from 'express';
 import taskRouter from './routers/tasks';
+import loginRouter from './routers/login'
 const app = express();
 const port = 3000;
 
 app.use(express.json());
 app.use('/tasks',taskRouter);
+app.use('/login',loginRouter);
 
 app.listen(port, () => {
     console.log(`Server started at http://localhost:${port}`);

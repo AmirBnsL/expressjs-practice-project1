@@ -16,4 +16,4 @@ router.delete("/:TaskId", tasksController_1.default.deleteTasks);
 router.get("/tasks?Status=:taskStatus", tasksController_1.default.getTaskStatus);
 router.get("/tasks?sortby=:sortby", tasksController_1.default.sortTasks);
 /* router.get("/count",tasksController.count)
- */ 
+ */
